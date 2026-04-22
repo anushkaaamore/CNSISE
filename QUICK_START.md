@@ -16,10 +16,10 @@ cd client
 npm install  # (only first time)
 npm run dev
 ```
-✅ You should see: `Local: http://localhost:3000/`
+✅ You should see: `Local: http://localhost:5173/`
 
 ### Step 3: Open & Test
-- Open browser → http://localhost:3000
+- Open browser → `http://localhost:5173`
 - Login with any email & password (min 6 chars)
 - Send messages
 - Open another tab to test multi-user messaging
