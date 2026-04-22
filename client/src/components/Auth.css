@@ -12,9 +12,9 @@
     width: 100%;
     max-width: 420px;
     background: white;
-    border-radius: 16px;
+    border-radius: 20px;
     padding: 40px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
     animation: slideUp 0.4s ease-out;
 }
 
@@ -31,25 +31,29 @@
 
 .auth-header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 32px;
 }
 
 .auth-header h1 {
     font-size: 32px;
     color: #667eea;
     margin-bottom: 8px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 .auth-header p {
-    color: #999;
-    font-size: 14px;
+    color: #718096;
+    font-size: 15px;
+    line-height: 1.5;
 }
 
 .form-title h2 {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 20px;
+    color: #2d3748;
+    font-size: 22px;
+    margin-bottom: 24px;
     text-align: center;
+    font-weight: 600;
 }
 
 .form-group {
@@ -58,26 +62,32 @@
 
 .form-group label {
     display: block;
-    color: #333;
+    color: #2d3748;
     font-weight: 600;
     margin-bottom: 8px;
     font-size: 14px;
+    letter-spacing: 0.3px;
 }
 
 .form-group input {
     width: 100%;
     padding: 12px 14px;
-    border: 2px solid #eee;
-    border-radius: 8px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
     font-size: 14px;
-    background: #f9f9f9;
+    background: #f7fafc;
     transition: all 0.3s ease;
+    letter-spacing: 0.3px;
+}
+
+.form-group input::placeholder {
+    color: #cbd5e0;
 }
 
 .form-group input:focus {
     background: white;
     border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.08);
 }
 
 .form-group input:disabled {
@@ -91,11 +101,26 @@
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     font-weight: 600;
-    border-radius: 8px;
-    margin-top: 10px;
+    border-radius: 10px;
+    margin-top: 16px;
     font-size: 16px;
     box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
     transition: all 0.3s ease;
+    letter-spacing: 0.3px;
+}
+
+.auth-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.auth-button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.auth-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 .auth-button:hover:not(:disabled) {
