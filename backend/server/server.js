@@ -2,13 +2,6 @@ const express = require("express");
 const http = require("http");
 const cors = require("cors");
 const socketIo = require("socket.io");
-const admin = require("firebase-admin");
-
-const serviceAccount = require("./serviceAccountKey.json");
-
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-});
 
 const app = express();
 const server = http.createServer(app);
@@ -20,15 +13,19 @@ const io = socketIo(server, {
 app.use(cors());
 app.use(express.json());
 
-// 🔐 Firebase Auth middleware
-const auth = async (req, res, next) => {
+// 🔐 Simple Auth middleware (for demo - uses mock tokens)
+const auth = (req, res, next) => {
   try {
     const token = req.headers.authorization;
     if (!token) return res.status(401).send("No token");
 
-    const decoded = await admin.auth().verifyIdToken(token);
-    req.user = decoded;
-    next();
+    // Demo mode: Accept any token starting with "mock_token_"
+    if (token.startsWith("mock_token_")) {
+      req.user = { token: token };
+      next();
+    } else {
+      res.status(401).send("Invalid token");
+    }
   } catch (err) {
     console.error(err);
     res.status(401).send("Unauthorized");
